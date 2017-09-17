@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.7.1.me201602031002]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+	</configs>
+	<autoconfigs>
+		<config>src/main/resources/mvc-servlet.xml</config>
+		<config>src/main/resources/spring-jedis.xml</config>
+		<config>src/main/resources/spring-mybatis.xml</config>
+		<config>src/main/resources/spring-shiro.xml</config>
+		<config>src/main/resources/spring.xml</config>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

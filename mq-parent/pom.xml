@@ -16,9 +16,9 @@
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>4.3.0.RELEASE</spring.version>    
+    <spring.version>4.1.0.RELEASE</spring.version>    
   	 <org.aspectj-version>1.8.7</org.aspectj-version> 
-  	 <shiro.version>1.4.0</shiro.version>
+  	 <shiro.version>1.2.3</shiro.version>
   </properties>
 	
   <dependencyManagement>
@@ -27,7 +27,7 @@
 		<dependency>
 		    <groupId>org.apache.activemq</groupId>
 		    <artifactId>activemq-all</artifactId>
-		    <version>5.15.0</version>
+		    <version>5.11.1</version>
 		</dependency>
   		<dependency>
 			<groupId>org.apache.shiro</groupId>
@@ -83,6 +83,13 @@
 	        <artifactId>spring-jdbc</artifactId>  
 	        <version>${spring.version}</version>  
 	    </dependency>  
+	    <!-- https://mvnrepository.com/artifact/org.springframework/spring-jms -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jms</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+	    
 	    
 	     <!-- AspectJ -->  
 	    <dependency>  
@@ -297,13 +304,13 @@
     </pluginManagement>
   </build>
   
-  <repositories>
+  <!-- <repositories>
   	<repository>
   		<id>jahia</id>
   		<releases><enabled>true</enabled></releases>
   		<url>http://maven.jahia.org/maven2/</url>
   	</repository>
-  </repositories>
+  </repositories> -->
   <profiles>
   		<profile>
   			<id>dev</id>
