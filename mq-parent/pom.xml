@@ -23,21 +23,15 @@
   	 <org.aspectj-version>1.8.7</org.aspectj-version> 
   	 <shiro.version>1.2.3</shiro.version>
   	 <atomikos.version>4.0.4</atomikos.version>
-  	 <rocketmq.version>3.5.9</rocketmq.version>
+  	 <rocketmq.version>4.0.0-incubating</rocketmq.version>
   </properties>
 	
   <dependencyManagement>
   	<dependencies>
   		<dependency>
-		    <groupId>com.alibaba.rocketmq</groupId>
-		    <artifactId>rocketmq-all</artifactId>
-		    <version>${rocketmq.version}</version>
-		</dependency>
-  		<!-- https://mvnrepository.com/artifact/com.alibaba.rocketmq/rocketmq-client -->
-		<dependency>
-		    <groupId>com.alibaba.rocketmq</groupId>
-		    <artifactId>rocketmq-client</artifactId>
-		    <version>${rocketmq.version}</version>
+		    <groupId>org.apache.rocketmq</groupId>
+		    <artifactId>rocketmq-client</artifactId>
+		    <version>${rocketmq.version}</version>
 		</dependency>
   		
   		<dependency>
