@@ -26,7 +26,7 @@ public class MessageController extends GenericController {
 	
 	@RequestMapping("/list")
 	public String list(){
-		return "admins/message/list";
+		return "admins/message/list.ftl";
 	}
 	
 	@RequestMapping("/list/data")
