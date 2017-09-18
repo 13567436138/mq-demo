@@ -29,9 +29,9 @@
   <dependencyManagement>
   	<dependencies>
   		<dependency>
-		    <groupId>org.apache.rocketmq</groupId>
-		    <artifactId>rocketmq-client</artifactId>
-		    <version>${rocketmq.version}</version>
+			<groupId>org.apache.rocketmq</groupId>
+			<artifactId>rocketmq-client</artifactId>
+			<version>${rocketmq.version}</version>
 		</dependency>
   		
   		<dependency>
