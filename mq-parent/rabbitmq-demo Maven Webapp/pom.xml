@@ -16,6 +16,10 @@
   
   <dependencies>
   		<dependency>
+		    <groupId>javax.jms</groupId>
+		    <artifactId>javax.jms-api</artifactId>
+		</dependency>
+  		<dependency>
 	      <groupId>com.rabbitmq</groupId>
 	      <artifactId>amqp-client</artifactId>
 	    </dependency>
