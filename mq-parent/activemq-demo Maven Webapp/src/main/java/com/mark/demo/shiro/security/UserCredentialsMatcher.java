@@ -4,24 +4,25 @@ import java.util.Collection;
 
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.CollectionUtils;
+
+import com.mark.demo.shiro.entity.User;
 
 
 public class UserCredentialsMatcher extends SimpleCredentialsMatcher {
     @Override
     public boolean doCredentialsMatch(AuthenticationToken authcToken, AuthenticationInfo info) {
-        return true;
-//        UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-//        if (null != token.getCrm() && token.getCrm()) return true;// 支撑免登陆用户
-//        if (null != token.getErp() && token.getErp()) return true;// ERP免登陆用户
-//        UserPrincipal principal = (UserPrincipal) getAvailablePrincipal(info.getPrincipals(), token.getUsername());
-//        String password = String.valueOf(token.getPassword());
-//        StringBuffer buffer = new StringBuffer(password).append(principal.getUserSalt());
-//        Object tokenCredentials = EncryptUtils.encrypt(buffer.toString(), ZttxConst.ENCRYPT);
-//        Object accountCredentials = getCredentials(info);
-//        return equals(tokenCredentials, accountCredentials);
+       
+        UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
+        User principal = (User) getAvailablePrincipal(info.getPrincipals(), token.getUsername());
+        String password = String.valueOf(token.getPassword());
+        //StringBuffer buffer = new StringBuffer(password).append(principal.getUserSalt());
+        //Object tokenCredentials = EncryptUtils.encrypt(buffer.toString(), ZttxConst.ENCRYPT);
+        //Object accountCredentials = getCredentials(info);
+        return equals(password, principal.getPassword());
     }
 
     /**

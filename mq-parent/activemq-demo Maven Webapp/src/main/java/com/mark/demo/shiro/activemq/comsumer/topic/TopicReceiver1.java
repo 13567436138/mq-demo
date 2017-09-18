@@ -39,7 +39,8 @@ public class TopicReceiver1 implements SessionAwareMessageListener<TextMessage>{
 		myMessage.setContent(msg);
 		myMessage.setReceiveTime(new Date().getTime());
 		myMessage.setType(MessageType.TOPIC_TYPE);
-		myMessage.setReceiver(((User)SecurityUtils.getSubject().getPrincipal()).getUserName());
+		myMessage.setReceiver("mark");
+		//myMessage.setReceiver(((User)SecurityUtils.getSubject().getPrincipal()).getUserName());
 		dao.insert(myMessage);
 	}
 	

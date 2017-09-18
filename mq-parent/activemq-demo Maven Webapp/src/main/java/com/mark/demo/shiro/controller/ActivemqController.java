@@ -12,6 +12,8 @@ import com.mark.demo.shiro.activemq.producer.topic.TopicSender;
 import com.mark.demo.shiro.constant.CommonConst;
 import com.mark.demo.shiro.constant.MessageType;
 import com.mark.demo.shiro.entity.EnumDescribable;
+import com.mark.demo.shiro.entity.JsonMessage;
+import com.mark.demo.shiro.utils.JsonMessageUtils;
 
 @Controller
 @RequestMapping("/admins/activemq")
@@ -30,7 +32,7 @@ public class ActivemqController {
 	 */
 	@ResponseBody
 	@RequestMapping("/sendMessage")
-	public EnumDescribable queueSender(@RequestParam("message")String message,int type){
+	public JsonMessage queueSender(@RequestParam("message")String message,int type){
 		try {
 			if(type==MessageType.QUEUE_TYPE){
 				queueSender.send("mark.queue", message);
@@ -38,9 +40,9 @@ public class ActivemqController {
 				topicSender.send("mark.topic", message);
 			}
 		} catch (Exception e) {
-			return CommonConst.FAIL;
+			return JsonMessageUtils.getJsonMessage(CommonConst.FAIL);
 		}
-		return CommonConst.SUCCESS;
+		return JsonMessageUtils.getJsonMessage(CommonConst.SUCCESS);
 	}
 	
 	

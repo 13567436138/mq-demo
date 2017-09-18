@@ -10,6 +10,16 @@
     	<result column="type" property="type" />
     </resultMap>
     
+    <insert id="insert" parameterType="Message">
+    	insert into message(content,receiveTime,receiver,`type`)values
+    	(
+    		#{content},
+    		#{receiveTime},
+    		#{receiver},
+    		#{type}
+    	)
+    </insert>
+    
     <select id="findList" parameterType="Message" resultMap="messageMap">
     	select * from message
     	<where>
