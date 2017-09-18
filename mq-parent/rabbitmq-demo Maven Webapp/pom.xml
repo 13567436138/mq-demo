@@ -16,8 +16,8 @@
   
   <dependencies>
   		<dependency>
-		    <groupId>javax.jms</groupId>
-		    <artifactId>javax.jms-api</artifactId>
+			<groupId>javax.jms</groupId>
+			<artifactId>javax.jms-api</artifactId>
 		</dependency>
   		<dependency>
 	      <groupId>com.rabbitmq</groupId>
