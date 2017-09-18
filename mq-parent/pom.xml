@@ -12,6 +12,7 @@
 
   <modules>
   	<module>activemq-demo Maven Webapp</module>
+  	<module>rabbitmq-demo Maven Webapp</module>
   </modules>
   
   <properties>
@@ -24,6 +25,16 @@
 	
   <dependencyManagement>
   	<dependencies>
+  		<dependency>
+	      <groupId>com.rabbitmq</groupId>
+	      <artifactId>amqp-client</artifactId>
+	      <version>3.5.1</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework.amqp</groupId>
+	        <artifactId>spring-rabbit</artifactId>
+	        <version>1.4.5.RELEASE</version>
+	    </dependency>
   	<!-- https://mvnrepository.com/artifact/javax.transaction/jta -->
 		<dependency>
 		    <groupId>javax.transaction</groupId>
