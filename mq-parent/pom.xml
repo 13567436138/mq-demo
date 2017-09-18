@@ -14,6 +14,7 @@
   	<module>activemq-demo Maven Webapp</module>
   	<module>rabbitmq-demo Maven Webapp</module>
   	<module>rocketmq-demo Maven Webapp</module>
+  	<module>kafka-demo Maven Webapp</module>
   </modules>
   
   <properties>
