@@ -72,8 +72,8 @@
 		<div>
 			<form  id='searchForm' action="" method="post">
 				接收时间:
-				<input type="text" name="receiveTime_start"/>-
-				<input type="text" name="receiveTime_end"/>
+				<input type="text" name="receiveTimeStart"/>-
+				<input type="text" name="receiveTimeEnd"/>
 				接收人:
 				<input type="text" name="receiver"/>
 				<input type="button" onclick="loadList(1);" value="查询"/>

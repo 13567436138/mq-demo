@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mark.demo.shiro.activemq.producer.queue.QueueSender;
 import com.mark.demo.shiro.activemq.producer.topic.TopicSender;
 import com.mark.demo.shiro.constant.CommonConst;
+import com.mark.demo.shiro.constant.MessageType;
 import com.mark.demo.shiro.entity.EnumDescribable;
 
 @Controller
@@ -31,9 +32,9 @@ public class ActivemqController {
 	@RequestMapping("/sendMessage")
 	public EnumDescribable queueSender(@RequestParam("message")String message,int type){
 		try {
-			if(type==1){
+			if(type==MessageType.QUEUE_TYPE){
 				queueSender.send("mark.queue", message);
-			}else if(type==2){
+			}else if(type==MessageType.TOPIC_TYPE){
 				topicSender.send("mark.topic", message);
 			}
 		} catch (Exception e) {

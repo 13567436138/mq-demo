@@ -2,6 +2,7 @@ package com.mark.demo.shiro.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import com.mark.demo.shiro.base.GenericController;
 import com.mark.demo.shiro.base.PaginateResult;
 import com.mark.demo.shiro.base.Pagination;
 import com.mark.demo.shiro.entity.Message;
+import com.mark.demo.shiro.entity.User;
 import com.mark.demo.shiro.service.MessageService;
 
 /*
@@ -32,6 +34,7 @@ public class MessageController extends GenericController {
 	@RequestMapping("/list/data")
 	@ResponseBody
 	public PaginateResult<Message> listData(Message message,Pagination pagination,HttpServletRequest request){
+		message.setReceiver(((User)SecurityUtils.getSubject().getPrincipal()).getUserName());
 		return messageService.findPage(pagination, message);
 	}
 }

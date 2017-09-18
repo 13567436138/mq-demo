@@ -123,7 +123,7 @@ DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
   messageId int primary key AUTO_INCREMENT,
   receiveTime long,
-  context varchar(1000),
+  content varchar(1000),
   receiver varchar(50),
-  type int #1  queue ,2 topic
+  `type` int #1  queue ,2 topic
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

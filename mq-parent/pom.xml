@@ -19,10 +19,43 @@
     <spring.version>4.1.0.RELEASE</spring.version>    
   	 <org.aspectj-version>1.8.7</org.aspectj-version> 
   	 <shiro.version>1.2.3</shiro.version>
+  	 <atomikos.version>4.0.4</atomikos.version>
   </properties>
 	
   <dependencyManagement>
   	<dependencies>
+  	<!-- https://mvnrepository.com/artifact/javax.transaction/jta -->
+		<dependency>
+		    <groupId>javax.transaction</groupId>
+		    <artifactId>jta</artifactId>
+		    <version>1.1</version>
+		</dependency>
+  	
+  		<!-- https://mvnrepository.com/artifact/com.atomikos/transactions-jta -->
+		<dependency>
+		    <groupId>com.atomikos</groupId>
+		    <artifactId>transactions-jta</artifactId>
+		    <version>${atomikos.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.atomikos/transactions -->
+		<dependency>
+		    <groupId>com.atomikos</groupId>
+		    <artifactId>transactions</artifactId>
+		    <version>${atomikos.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.atomikos/transactions-jdbc -->
+		<dependency>
+		    <groupId>com.atomikos</groupId>
+		    <artifactId>transactions-jdbc</artifactId>
+		    <version>${atomikos.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.atomikos/transactions-jms -->
+		<dependency>
+		    <groupId>com.atomikos</groupId>
+		    <artifactId>transactions-jms</artifactId>
+		    <version>${atomikos.version}</version>
+		</dependency>
+  		
   		<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-all -->
 		<dependency>
 		    <groupId>org.apache.activemq</groupId>

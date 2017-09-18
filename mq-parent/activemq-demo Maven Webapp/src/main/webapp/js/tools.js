@@ -601,12 +601,11 @@ function submitForm(formId, url, handler) {
 	// 判断当前操作表单提交action
 	var t_handler = handler || function() {
 	};
-	var cmitUrl = url;
 	
 	var csrfToken = $('#_csrf-form').find('input[name="csrfToken"]').val();
 	url += (url.indexOf("?") == -1) ? "?" : "&";
     url += "csrfToken=" + csrfToken;
-
+    var cmitUrl = url;
 	$('#' + formId).form('submit', {
 		url : cmitUrl,
 		onSubmit : function() { // 提交前的验证				

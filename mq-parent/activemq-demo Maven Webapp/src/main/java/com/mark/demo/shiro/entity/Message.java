@@ -10,14 +10,40 @@ import com.mark.demo.shiro.base.GenericEntity;
 public class Message extends GenericEntity {
 	private static final long serialVersionUID = -3153003910064446826L;
 
-	private String context;
+	private String content;
 	private Long receiveTime;
 	private String receiver;
-	public String getContext() {
-		return context;
+	private int type;
+	
+	private Long receiveTimeStart;
+	private Long receiveTimeEnd;
+	
+	
+	
+	public Long getReceiveTimeStart() {
+		return receiveTimeStart;
 	}
-	public void setContext(String context) {
-		this.context = context;
+	public void setReceiveTimeStart(Long receiveTimeStart) {
+		this.receiveTimeStart = receiveTimeStart;
+	}
+	public Long getReceiveTimeEnd() {
+		return receiveTimeEnd;
+	}
+	public void setReceiveTimeEnd(Long receiveTimeEnd) {
+		this.receiveTimeEnd = receiveTimeEnd;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
+	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public Long getReceiveTime() {
 		return receiveTime;

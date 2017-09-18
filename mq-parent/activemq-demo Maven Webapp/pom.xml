@@ -16,6 +16,31 @@
   </properties>
   
   <dependencies>
+  		<dependency>
+		    <groupId>javax.transaction</groupId>
+		    <artifactId>jta</artifactId>
+		</dependency>
+  		<!-- https://mvnrepository.com/artifact/com.atomikos/transactions-jta -->
+		<dependency>
+		    <groupId>com.atomikos</groupId>
+		    <artifactId>transactions-jta</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.atomikos/transactions -->
+		<dependency>
+		    <groupId>com.atomikos</groupId>
+		    <artifactId>transactions</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.atomikos/transactions-jdbc -->
+		<dependency>
+		    <groupId>com.atomikos</groupId>
+		    <artifactId>transactions-jdbc</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.atomikos/transactions-jms -->
+		<dependency>
+		    <groupId>com.atomikos</groupId>
+		    <artifactId>transactions-jms</artifactId>
+		</dependency>
+  		
    		<!-- xbean -->
         <dependency>
             <groupId>org.apache.xbean</groupId>
