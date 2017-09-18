@@ -38,13 +38,33 @@
         </constructor-arg>
     </bean>
     
-    <!-- 配置JMS模板（Queue），Spring提供的JMS工具类，它发送、接收消息。 -->
-    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
-        <property name="connectionFactory" ref="connectionFactory" />
-        <property name="defaultDestination" ref="demoQueueDestination" />
-        <property name="receiveTimeout" value="10000" />
-        <!-- true是topic，false是queue，默认是false，此处显示写出false -->
+    <!-- 定义JmsTemplate的Queue类型 -->
+    <bean id="jmsQueueTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <!-- 这个connectionFactory对应的是我们定义的Spring提供的那个ConnectionFactory对象 -->  
+        <constructor-arg ref="connectionFactory" />
+        <!-- 非pub/sub模型（发布/订阅），即队列模式 -->
         <property name="pubSubDomain" value="false" />
     </bean>
+
+    <!-- 定义JmsTemplate的Topic类型 -->
+    <bean id="jmsTopicTemplate" class="org.springframework.jms.core.JmsTemplate">
+         <!-- 这个connectionFactory对应的是我们定义的Spring提供的那个ConnectionFactory对象 -->  
+        <constructor-arg ref="connectionFactory" />
+        <!-- pub/sub模型（发布/订阅） -->
+        <property name="pubSubDomain" value="true" />
+    </bean>
+    
+    
+    <!-- 定义Queue监听器 -->
+    <jms:listener-container destination-type="queue" container-type="default" connection-factory="connectionFactory" acknowledge="auto">
+        <jms:listener destination="mark.queue" ref="queueReceiver1"/>
+        <jms:listener destination="mark.queue" ref="queueReceiver2"/>
+    </jms:listener-container>
+
+    <!-- 定义Topic监听器 -->
+    <jms:listener-container destination-type="topic" container-type="default" connection-factory="connectionFactory" acknowledge="auto">
+        <jms:listener destination="mark.topic" ref="topicReceiver1"/>
+        <jms:listener destination="mark.topic" ref="topicReceiver2"/>
+    </jms:listener-container>
    
  </beans>

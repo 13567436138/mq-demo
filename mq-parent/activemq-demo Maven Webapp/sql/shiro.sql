@@ -43,6 +43,9 @@ insert into menu(pid,menuName,menuDesc,`link`,`order`)values((select a.menuId fr
 insert into menu(pid,menuName,menuDesc,`link`,`order`)values((select a.menuId from (select menuId from menu where menuName='系统管理')a),'分组管理','分组管理','/group/list',2);
 insert into menu(pid,menuName,menuDesc,`link`,`order`)values((select a.menuId from (select menuId from menu where menuName='系统管理')a),'用户管理','用户管理','/user/list',2);
 
+insert into menu(pid,menuName,menuDesc,`link`,`order`)values(-1,'mq消息','mq消息',null,1);
+insert into menu(pid,menuName,menuDesc,`link`,`order`)values((select a.menuId from (select menuId from menu where menuName='mq消息')a),'activemq消息','activemq消息','/admins/message/list',1);
+
 -- ----------------------------
 -- Table structure for menu_role
 -- ----------------------------
@@ -114,4 +117,12 @@ DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE `user_role` (
   `userId` int(11) DEFAULT NULL,
   `roleId` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE `message` (
+  messageId int primary key AUTO_INCREMENT,
+  receiveTime long,
+  context varchar(1000),
+  receiver varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
