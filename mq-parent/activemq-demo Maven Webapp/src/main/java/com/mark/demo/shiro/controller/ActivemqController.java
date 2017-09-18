@@ -9,15 +9,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mark.demo.shiro.activemq.producer.queue.QueueSender;
 import com.mark.demo.shiro.activemq.producer.topic.TopicSender;
+import com.mark.demo.shiro.constant.CommonConst;
+import com.mark.demo.shiro.entity.EnumDescribable;
 
 @Controller
-@RequestMapping("/activemq")
+@RequestMapping("/admins/activemq")
 public class ActivemqController {
 	
 	@Resource 
-	QueueSender queueSender;
+	private QueueSender queueSender;
 	@Resource 
-	TopicSender topicSender;
+	private TopicSender topicSender;
 	
 	/**
 	 * 发送消息到队列
@@ -26,36 +28,19 @@ public class ActivemqController {
 	 * @return String
 	 */
 	@ResponseBody
-	@RequestMapping("/queueSender")
-	public String queueSender(@RequestParam("message")String message){
-		String opt="";
+	@RequestMapping("/sendMessage")
+	public EnumDescribable queueSender(@RequestParam("message")String message,int type){
 		try {
-			queueSender.send("mark.queue", message);
-			opt = "suc";
+			if(type==1){
+				queueSender.send("mark.queue", message);
+			}else if(type==2){
+				topicSender.send("mark.topic", message);
+			}
 		} catch (Exception e) {
-			opt = e.getCause().toString();
+			return CommonConst.FAIL;
 		}
-		return opt;
+		return CommonConst.SUCCESS;
 	}
 	
-	/**
-	 * 发送消息到主题
-	 * Topic主题 ：放入一个消息，所有订阅者都会收到 
-	 * 这个是主题目的地是一对多的
-	 * @param message
-	 * @return String
-	 */
-	@ResponseBody
-	@RequestMapping("/topicSender")
-	public String topicSender(@RequestParam("message")String message){
-		String opt = "";
-		try {
-			topicSender.send("mark.topic", message);
-			opt = "suc";
-		} catch (Exception e) {
-			opt = e.getCause().toString();
-		}
-		return opt;
-	}
 	
 }

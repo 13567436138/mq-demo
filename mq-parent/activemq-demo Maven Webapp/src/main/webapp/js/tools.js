@@ -378,7 +378,7 @@ var _insertHandler = function(url) {
 	$('#addForm').form.url = url || insertUrl; //表单提交路径
 	submitForm("addForm", $('#addForm').form.url, function(data) {
 		data = convertJson(data);
-		if (data.result == "ok") {
+		if (data.code == 126000) {
 			$('#addForm').form('clear'); // 清空form
 			$('#dataList').datagrid('clearSelections');//清空选择
 			$('#addwindow').dialog('close');
@@ -602,6 +602,10 @@ function submitForm(formId, url, handler) {
 	var t_handler = handler || function() {
 	};
 	var cmitUrl = url;
+	
+	var csrfToken = $('#_csrf-form').find('input[name="csrfToken"]').val();
+	url += (url.indexOf("?") == -1) ? "?" : "&";
+    url += "csrfToken=" + csrfToken;
 
 	$('#' + formId).form('submit', {
 		url : cmitUrl,

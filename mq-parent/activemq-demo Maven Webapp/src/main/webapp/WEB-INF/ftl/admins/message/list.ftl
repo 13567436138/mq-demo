@@ -10,7 +10,7 @@
    <script type="text/javascript"  charset="UTF-8">
    var searchUrl = "${contextPath}/admins/message/list/data";
    var updateUrl = "${contextPath}/departments/update.do";
-   var insertUrl = "${contextPath}/departments/insert.do";
+   var insertUrl = "${contextPath}/admins/activemq/sendMessage";
    var deleteUrl = "${contextPath}/departments/delete.do";
 	$(function() {
 	    $('#dataList').datagrid({  
@@ -66,8 +66,8 @@
 		<div id='dataList'>
 			<div id="tb" style="padding:5px;height:auto">
 		<div style="margin-bottom:5px">
-			<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="showAddwindow({title:'发布queue消息'})">发布queue消息</a>|
-			<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="showAddwindow({title:'发布topic消息'})">发布topic消息</a>|
+			<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="showAddwindow({title:'发布queue消息',url:'${contextPath}/admins/activemq/sendMessage?type=1'})">发布queue消息</a>|
+			<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="showAddwindow({title:'发布topic消息',url:'${contextPath}/admins/activemq/sendMessage?type=2'})">发布topic消息</a>|
 		</div>
 		<div>
 			<form  id='searchForm' action="" method="post">
