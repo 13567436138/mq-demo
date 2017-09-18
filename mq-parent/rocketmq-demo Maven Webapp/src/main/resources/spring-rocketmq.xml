@@ -10,14 +10,19 @@
             http://www.springframework.org/schema/task
             http://www.springframework.org/schema/task/spring-task-3.2.xsd">
 
-    <description>Spring全局配置</description>
-
-	<bean id="springUtils" class="com.mark.demo.shiro.utils.SpringUtils"></bean>
-
-    <!-- 使用Annotation自动注册Bean，解决事务失效问题：在主容器中不扫描@Controller注解，在SpringMvc中只扫描@Controller注解。  -->
-    <context:component-scan base-package="com.mark.demo.shiro.service"><!-- base-package 如果多个，用“,”分隔 -->
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
-
+   <bean id="myProducer" class="com.mark.demo.shiro.rocketmq.producer.MyProducer"
+            init-method="init"  
+            destroy-method="destroy"
+            scope="singleton">
+　　　　　　<property name="producerGroup" value="MyProducerGroup" />
+　　　　　　<property name="namesrvAddr" value="192.168.198.129:9876" />
+    </bean>
+    <bean class="com.mark.demo.shiro.rocketmq.consumer.MyConsumer" 
+            init-method="init" 
+            destroy-method="destroy"
+            scope="singleton">
+　　　　　　<property name="consumerGroup" value="MyConsumerGroup" />
+　　　　　　<property name="namesrvAddr" value="192.168.198.129:9876" />
+    </bean> 
 	
 </beans>
