@@ -13,7 +13,7 @@ import com.mark.demo.shiro.utils.JsonMessageUtils;
 
 @Controller
 @RequestMapping("/admins/activemq")
-public class ActivemqController {
+public class RabbitmqController {
 	
 	@Autowired
 	private MQProducer producer;

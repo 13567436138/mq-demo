@@ -5,11 +5,13 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans 
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
     http://www.springframework.org/schema/rabbit
-    http://www.springframework.org/schema/rabbit/spring-rabbit-1.0.xsd
+    http://www.springframework.org/schema/rabbit/spring-rabbit-1.4.xsd
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context.xsd" >
 
     <description>rabbitmq 连接服务配置</description>
+    <rabbit:annotation-driven />
+    
     <context:property-placeholder ignore-unresolvable="true" location="classpath:rabbitmq-config.properties"/>
     <!-- 连接配置 -->
     <rabbit:connection-factory id="connectionFactory" host="${mq.host}" username="${mq.username}" password="${mq.password}" port="${mq.port}"  virtual-host="${mq.vhost}"/>
@@ -30,6 +32,14 @@
 	</rabbit:direct-exchange>
 	
 	<rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto">
-	    <rabbit:listener queues="markQueue" ref="queueListenter"/>
+	    <rabbit:listener  ref="queueListenter" queues="markQueue"/>
 	</rabbit:listener-container>
+	
+	<bean id="rabbitListenerContainerFactory"
+    	class="org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory">
+    <property name="messageConverter" ref="jsonMessageConverter" />
+    <property name="connectionFactory" ref="connectionFactory" />
+    <property name="concurrentConsumers" value="3" />
+    <property name="maxConcurrentConsumers" value="10" />
+</bean>
 </beans>
