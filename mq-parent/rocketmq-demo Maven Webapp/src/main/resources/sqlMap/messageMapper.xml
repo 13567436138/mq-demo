@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mark.demo.shiro.mapper.MessageMapper">
+	<cache eviction="LRU" type="com.mark.demo.shiro.mybatis.cache.MyBatisRedisCache" ></cache>
+    <resultMap type="Message" id="messageMap">
+    	<result column="messageId" property="id" />
+    	<result column="content" property="content" />
+    	<result column="receiveTime" property="receiveTime" />
+    	<result column="receiver" property="receiver" />
+    	<result column="type" property="type" />
+    </resultMap>
+    
+    <insert id="insert" parameterType="Message">
+    	insert into message(content,receiveTime,receiver,`type`)values
+    	(
+    		#{content},
+    		#{receiveTime},
+    		#{receiver},
+    		#{type}
+    	)
+    </insert>
+    
+    <select id="findList" parameterType="Message" resultMap="messageMap">
+    	select * from message
+    	<where>
+    		1=1
+    		<if test="receiveTimeStart!=null">
+    			and receiveTime&gt;#{receiveTimeStart}
+    		</if>
+    		<if test="receiveTimeEnd!=null">
+    			and receiveTime&lt;#{receiveTimeEnd}
+    		</if>
+    		<if test="receiver!=null and receiver!=''">
+    			and receiver=#{receiver}
+    		</if>
+    	</where>
+    </select>
+</mapper>
+
