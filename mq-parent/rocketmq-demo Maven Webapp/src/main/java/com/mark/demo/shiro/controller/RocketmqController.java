@@ -1,16 +1,14 @@
 package com.mark.demo.shiro.controller;
 
-import org.apache.rocketmq.client.exception.MQClientException;
-import org.apache.rocketmq.client.producer.SendResult;
-import org.apache.rocketmq.client.producer.SendStatus;
-import org.apache.rocketmq.common.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.rocketmq.client.producer.SendResult;
+import com.alibaba.rocketmq.client.producer.SendStatus;
+import com.alibaba.rocketmq.common.message.Message;
 import com.mark.demo.shiro.constant.CommonConst;
 import com.mark.demo.shiro.entity.JsonMessage;
 import com.mark.demo.shiro.rocketmq.producer.MyProducer;

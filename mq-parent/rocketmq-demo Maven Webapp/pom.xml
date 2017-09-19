@@ -15,7 +15,13 @@
   </properties>
   <dependencies>
   		<dependency>
-			<groupId>org.apache.rocketmq</groupId>
+            <groupId>com.alibaba.rocketmq</groupId>
+            <artifactId>rocketmq-all</artifactId>
+            <version>3.5.9</version>
+            <type>pom</type>
+        </dependency>
+  		<dependency>
+			<groupId>com.alibaba.rocketmq</groupId>
 			<artifactId>rocketmq-client</artifactId>
 		</dependency>
   		<dependency>
@@ -54,7 +60,7 @@
 		    <artifactId>spring-jms</artifactId>
 		</dependency>
 	      
-	    <!-- spring 附加功能包 -->  
+	    <!-- spring 闄勫姞鍔熻兘鍖� -->  
 	    <dependency>  
 	        <groupId>org.springframework</groupId>  
 	        <artifactId>spring-webmvc</artifactId>  
@@ -118,7 +124,7 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
         </dependency>
-        <!--mybatis-spring适配器 -->
+        <!--mybatis-spring閫傞厤鍣� -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>

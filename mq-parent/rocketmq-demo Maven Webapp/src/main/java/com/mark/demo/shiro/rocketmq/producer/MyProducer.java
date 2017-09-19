@@ -1,9 +1,10 @@
 package com.mark.demo.shiro.rocketmq.producer;
 
-import org.apache.rocketmq.client.exception.MQClientException;
-import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.alibaba.rocketmq.client.exception.MQClientException;
+import com.alibaba.rocketmq.client.producer.DefaultMQProducer;
 
 /*
 *hxp(hxpwangyi@126.com)

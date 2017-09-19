@@ -2,16 +2,17 @@ package com.mark.demo.shiro.rocketmq.consumer;
 
 import java.util.List;
 
-import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
-import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
-import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
-import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
-import org.apache.rocketmq.client.exception.MQClientException;
-import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
-import org.apache.rocketmq.common.message.MessageExt;
-import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.alibaba.rocketmq.client.consumer.DefaultMQPushConsumer;
+import com.alibaba.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
+import com.alibaba.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
+import com.alibaba.rocketmq.client.consumer.listener.MessageListenerConcurrently;
+import com.alibaba.rocketmq.client.exception.MQClientException;
+import com.alibaba.rocketmq.common.consumer.ConsumeFromWhere;
+import com.alibaba.rocketmq.common.message.MessageExt;
+import com.alibaba.rocketmq.common.protocol.heartbeat.MessageModel;
 
 /*
 *hxp(hxpwangyi@126.com)
@@ -62,7 +63,7 @@ public class MyConsumer {
                 if (msg.getTopic().equals("MyTopic")) {
                     // TODO 执行Topic的消费逻辑
                     if (msg.getTags() != null && msg.getTags().equals("MyTag")) {
-                        // TODO 执行Tag的消费
+                        System.out.println("got=============================");
                     }
                 }
                 // 如果没有return success ，consumer会重新消费该消息，直到return success
