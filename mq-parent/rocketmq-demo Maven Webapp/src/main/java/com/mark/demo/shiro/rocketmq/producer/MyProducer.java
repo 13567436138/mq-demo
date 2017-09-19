@@ -30,7 +30,7 @@ public class MyProducer {
         defaultMQProducer = new DefaultMQProducer(producerGroup);
         defaultMQProducer.setNamesrvAddr(namesrvAddr);
         defaultMQProducer.setInstanceName(String.valueOf(System.currentTimeMillis()));
-        
+        defaultMQProducer.setVipChannelEnabled(false);
         defaultMQProducer.start();
 
         logger.info("DefaultMQProudcer start success!");

@@ -416,8 +416,8 @@ function showError(data) {
 		$('#' + errors[0].field + 'Error').focus();
 		bl = true;
 	}
-	if (!isEmpty(data.errorMsg)) {
-		showBox("提示信息", data.errorMsg, 'warning');
+	if (!isEmpty(data.message)) {
+		showBox("提示信息", data.message, 'warning');
 		bl = true;
 	}
 	return bl;

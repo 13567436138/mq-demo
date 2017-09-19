@@ -14,15 +14,15 @@
             init-method="init"  
             destroy-method="destroy"
             scope="singleton">
-　　　　　　<property name="producerGroup" value="MyProducerGroup" />
-　　　　　　<property name="namesrvAddr" value="192.168.198.129:9876" />
-    </bean>
-    <bean class="com.mark.demo.shiro.rocketmq.consumer.MyConsumer" 
+		<property name="producerGroup" value="MyProducerGroup" />
+		<property name="namesrvAddr" value="192.168.198.129:9876" />
+	</bean>
+	<bean class="com.mark.demo.shiro.rocketmq.consumer.MyConsumer" 
             init-method="init" 
             destroy-method="destroy"
             scope="singleton">
-　　　　　　<property name="consumerGroup" value="MyConsumerGroup" />
-　　　　　　<property name="namesrvAddr" value="192.168.198.129:9876" />
+		<property name="consumerGroup" value="MyConsumerGroup" />
+		<property name="namesrvAddr" value="192.168.198.129:9876" />
     </bean> 
 	
 </beans>
