@@ -15,8 +15,9 @@
 http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 
     <!-- 加载属性文件 -->
-    <context:property-placeholder ignore-unresolvable="true" location="classpath:druid.properties"/>
     <context:property-placeholder ignore-unresolvable="true" location="classpath:jdbc.properties"/>
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:druid.properties"/>
+    
     <!-- 定义datasource -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
