@@ -52,6 +52,7 @@ public class MyConsumer {
 
         // 设置为集群消费(区别于广播消费)
         defaultMQPushConsumer.setMessageModel(MessageModel.CLUSTERING);
+        defaultMQPushConsumer.setVipChannelEnabled(false);
 
         defaultMQPushConsumer.registerMessageListener(new MessageListenerConcurrently() {
 
